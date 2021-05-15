@@ -6,7 +6,12 @@ import Section from "../Section/Section";
 
 const LandingSection: React.FC = () => {
   const background = (
-    <AppImage overlay className="h-full w-full" src="landing_1.jpg" />
+    <AppImage
+      overlay
+      overlayOpacity={0.5}
+      className="h-full w-full"
+      src="pica.jpg"
+    />
   );
 
   return (
