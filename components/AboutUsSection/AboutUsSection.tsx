@@ -8,7 +8,7 @@ const AboutUsSection: React.FC = () => {
   return (
     <Section id={ABOUT_US_SECTION_ID}>
       <div className="flex py-20 text-black items-center">
-        <div className="w-1/2 pr-10">
+        <div data-aos="fade-right" className="w-1/2 pr-10">
           <SectionTitle>Apie mus</SectionTitle>
           <p className="mt-6 text-xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt,
@@ -17,7 +17,12 @@ const AboutUsSection: React.FC = () => {
             excepturi fugiat minima iure?
           </p>
         </div>
-        <AppImage rounded className="w-1/2 h-96" src="landing_2.jpg" />
+        <AppImage
+          data-aos="fade-left"
+          rounded
+          className="w-1/2 h-96"
+          src="landing_2.jpg"
+        />
       </div>
     </Section>
   );

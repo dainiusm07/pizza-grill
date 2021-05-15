@@ -25,7 +25,7 @@ export const navigationItems: NavigationItem[] = [
   },
   {
     href: "#" + REVIEW_SECTION_ID,
-    title: "Atsiliepimai",
+    title: "Atsiliepimas",
   },
   {
     href: "#" + CONTACTS_SECTION_ID,
