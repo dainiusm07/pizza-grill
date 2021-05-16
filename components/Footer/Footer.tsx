@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
             </a>
           </div>
         </div>
-        <div className="w-full sm:w-1/2 lg:w-1/3 min-w-52 lg:px-16 md:pr-5 mt-10 lg:mt-0">
+        <div className="w-full sm:w-1/2 lg:w-1/3 min-w-52 lg:px-16 sm:pr-5 mt-10 lg:mt-0">
           <h5 className={titleClass}>Darbo laikas</h5>
           <div className={clsx(paragraphClass, "max-w-xs mx-auto")}>
             {workingHours.map(({ day, from, to }) => (
@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className="w-full sm:w-1/2 lg:w-1/3 mt-10 lg:mt-0 pl-5 lg:pl-0">
+        <div className="w-full sm:w-1/2 lg:w-1/3 mt-10 lg:mt-0 sm:pl-5 lg:pl-0">
           <h5 className={titleClass}>Kontaktai</h5>
           <div className={paragraphClass}>
             <div className="mb-1">

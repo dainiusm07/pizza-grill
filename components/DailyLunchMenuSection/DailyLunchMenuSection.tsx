@@ -1,6 +1,7 @@
 import React from "react";
 import { DAILY_LUNCH_MENU_SECTION_ID } from "../../common/constants";
-import { useMedia } from "../../hooks/useMediaDown.hook";
+import { useMediaDown } from "../../hooks/useMediaDown.hook";
+import { useRendered } from "../../hooks/useRendered.hook";
 import AppImage from "../AppImage/AppImage";
 import Carousel from "../Carousel/Carousel";
 import Section from "../Section/Section";
@@ -8,7 +9,8 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 import { dailyLunchMenuImages } from "./DailyLunchMenuSection.data";
 
 const DailyLunchMenuSection: React.FC = () => {
-  const isMobile = useMedia("sm");
+  const isSmDown = useMediaDown("sm");
+  const isRendered = useRendered();
 
   const background = <div className="h-full w-full bg-gray-100" />;
 
@@ -32,9 +34,9 @@ const DailyLunchMenuSection: React.FC = () => {
           </p>
         </div>
         <div className="mt-16 h-52">
-          {isMobile ? (
+          {isRendered && isSmDown ? (
             <div
-              data-aos="zoom-in"
+              data-aos="flip-left"
               className="h-full rounded-lg overflow-hidden"
             >
               <Carousel frames={carouselFrames} />

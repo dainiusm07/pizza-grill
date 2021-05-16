@@ -28,27 +28,26 @@ const breakpoints: Breakpoint[] = [
   },
 ];
 
-export const useMedia = (size: Breakpoint["size"]) => {
-  const [matches, setMatches] = useState(false);
+export const useMediaDown = (size: Breakpoint["size"]) => {
+  const [width, setWidth] = useState(0);
 
-  const neededBreakpoint = breakpoints.find(
+  const breakpointWidth = breakpoints.find(
     (breakpoint) => breakpoint.size === size
-  );
+  ).width;
 
-  const listener = () => {
-    setMatches(neededBreakpoint.width >= window.innerWidth);
+  const handleResizeEvent = () => {
+    setWidth(window.innerWidth);
   };
 
   useEffect(() => {
-    listener();
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResizeEvent);
+      handleResizeEvent();
+      return () => {
+        window.removeEventListener("resize", handleResizeEvent);
+      };
+    }
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("resize", listener);
-    return () => {
-      window.removeEventListener("resize", listener);
-    };
-  }, [matches]);
-
-  return matches;
+  return breakpointWidth >= width && width !== 0;
 };

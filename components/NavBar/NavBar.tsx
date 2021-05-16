@@ -1,74 +1,98 @@
 import clsx from "clsx";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import ContentContainer from "../ContentContainer/ContentContainer";
 import { navigationItems } from "./NavBar.data";
 import { useScroll } from "../../hooks/useScroll.hooks";
 import { LANDING_SECTION_ID } from "../../common/constants";
 import AppImage from "../AppImage/AppImage";
-import { useMedia } from "../../hooks/useMediaDown.hook";
-
-const classes = {
-  wrapper: {
-    normal: "fixed bg-white text-black",
-    expanded:
-      "absolute bg-black text-white bg-opacity-20 border-t-0 border-l-0 border-r-0 border border-white border-opacity-10",
-  },
-  container: {
-    normal: "py-2",
-    expanded: "py-5 text-xl",
-  },
-  logo: {
-    normal: "h-12 w-12",
-    expanded: "h-16 w-16 border border-white border-opacity-20",
-  },
-};
+import { useMediaDown } from "../../hooks/useMediaDown.hook";
+import MenuButton from "../MenuButton/MenuButton";
+import { useRendered } from "../../hooks/useRendered.hook";
 
 const NavBar: React.FC = () => {
-  const expanded = useScroll(300);
-  const isMobile = useMedia("sm");
+  const isScrolledDown = useScroll(300);
+  const isSmDown = useMediaDown("sm");
+  const isRendered = useRendered();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const getDynamicClass = (classOf: keyof typeof classes) => {
-    if (expanded) {
-      return classes[classOf].expanded;
-    }
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+  }, [menuOpen]);
 
-    return classes[classOf].normal;
+  const handleNavigation = () => {
+    setMenuOpen(false);
   };
 
+  const handleMenuButtonClick = () => {
+    setMenuOpen((open) => !open);
+  };
+
+  const isExpanded = isScrolledDown && !isSmDown;
+
+  const renderNavigationItems = (menuView?: boolean) =>
+    navigationItems.map(({ href, title }) => (
+      <li
+        key={title}
+        className={clsx("font-primary uppercase mx-4", menuView && "mb-5")}
+        onClick={handleNavigation}
+      >
+        <Link href={href}>{title}</Link>
+      </li>
+    ));
+
   return (
-    <header
-      className={clsx("inset-x-0 z-10 shadow-md", getDynamicClass("wrapper"))}
-    >
-      <nav>
+    <header>
+      <nav
+        className={clsx(
+          "inset-x-0 z-50 shadow-md",
+          isExpanded
+            ? "absolute bg-black text-white bg-opacity-20 border-t-0 border-l-0 border-r-0 border border-white border-opacity-10"
+            : "fixed bg-white text-black",
+          isSmDown && "px-3"
+        )}
+      >
         <ContentContainer
           className={clsx(
-            "max-w-5xl mx-auto flex justify-center transition-all duration-300",
-            getDynamicClass("container")
+            "safe max-w-5xl mx-auto flex justify-between items-center",
+            isExpanded ? "py-5 text-xl" : "py-2",
+            isRendered && "transition-spacing"
           )}
         >
-          <div className="flex items-center">
-            <Link href={`#${LANDING_SECTION_ID}`}>
-              <a href={`#${LANDING_SECTION_ID}`}>
-                <AppImage
-                  className={clsx("rounded-full", getDynamicClass("logo"))}
-                  src="site_logo.jpeg"
-                />
-              </a>
-            </Link>
+          <Link href={`#${LANDING_SECTION_ID}`}>
+            <a href={`#${LANDING_SECTION_ID}`} onClick={handleNavigation}>
+              <AppImage
+                className={clsx(
+                  "rounded-full",
+                  isExpanded
+                    ? "h-16 w-16 border border-white border-opacity-20"
+                    : "h-12 w-12"
+                )}
+                src="logo.png"
+              />
+            </a>
+          </Link>
 
-            {!isMobile && (
-              <ul className="flex ml-20">
-                {navigationItems.map(({ href, title }) => (
-                  <li key={title} className="font-primary uppercase mx-4">
-                    <Link href={href}>{title}</Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          {isSmDown ? (
+            <MenuButton
+              mode={menuOpen ? "close" : "open"}
+              onClick={handleMenuButtonClick}
+            />
+          ) : (
+            <ul className="flex">{renderNavigationItems()}</ul>
+          )}
         </ContentContainer>
       </nav>
+      {isSmDown && (
+        <div
+          className={clsx(
+            "fixed bg-white inset-0 z-40 flex text-3xl items-center justify-center transform transition-transform",
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          )}
+        >
+          <ul className="flex-1 text-center">{renderNavigationItems(true)}</ul>
+        </div>
+      )}
     </header>
   );
 };

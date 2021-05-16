@@ -7,7 +7,7 @@ import Layout from "../components/Layout/Layout";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
-    Aos.init({ once: true, delay: 50 });
+    Aos.init({ once: true, delay: 100 });
   }, []);
   return (
     <Layout>

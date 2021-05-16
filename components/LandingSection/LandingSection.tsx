@@ -6,28 +6,26 @@ import Carousel from "../Carousel/Carousel";
 import Section from "../Section/Section";
 
 const LandingSection: React.FC = () => {
-  const background = (
-    <Carousel>
-      <AppImage
-        overlay
-        overlayOpacity={0.5}
-        className="h-full w-full"
-        src="pica.jpg"
-      />
-      <AppImage
-        overlay
-        overlayOpacity={0.5}
-        className="h-full w-full"
-        src="landing_1.jpg"
-      />
-    </Carousel>
-  );
+  const carouselFrames = [
+    <AppImage
+      overlay
+      overlayOpacity={0.5}
+      className="h-full w-full"
+      src="pica.jpg"
+    />,
+    <AppImage
+      overlay
+      overlayOpacity={0.5}
+      className="h-full w-full"
+      src="landing_1.jpg"
+    />,
+  ];
 
   return (
     <Section
       className="h-screen w-screen"
       id={LANDING_SECTION_ID}
-      background={background}
+      background={<Carousel frames={carouselFrames} />}
     >
       <div className="h-full flex items-center justify-center">
         <div className="max-w-lg mx-auto">
