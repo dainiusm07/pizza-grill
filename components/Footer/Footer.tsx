@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import {
   COMPANY_NAME,
   COMPANY_PHONE_NUMBER,
@@ -17,10 +18,13 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id={CONTACTS_SECTION_ID} className="bg-black text-white">
-      <ContentContainer className="flex pt-20 pb-10">
-        <div className="w-1/3">
-          <div>
+    <footer
+      id={CONTACTS_SECTION_ID}
+      className="bg-black text-white px-3 lg:px-0 text-center lg:text-left"
+    >
+      <ContentContainer className="flex flex-row flex-wrap pt-20 pb-10">
+        <div className="w-full lg:w-1/3">
+          <div className="max-w-md mx-auto">
             <h5 className={titleClass}>{COMPANY_NAME}</h5>
             <p className={paragraphClass}>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut ipsa
@@ -28,15 +32,15 @@ const Footer: React.FC = () => {
               ex dolorum
             </p>
           </div>
-          <div className="mt-10 flex">
+          <div className="w-full lg:w-1/3 mt-10 flex justify-center lg:justify-start">
             <a href={COMPANY_FACEBOOK_LINK}>
               <AppImage className="h-8 w-8" src="facebook-flat.svg" />
             </a>
           </div>
         </div>
-        <div className="w-1/3 px-16">
+        <div className="w-full sm:w-1/2 lg:w-1/3 min-w-52 lg:px-16 md:pr-5 mt-10 lg:mt-0">
           <h5 className={titleClass}>Darbo laikas</h5>
-          <div className={paragraphClass}>
+          <div className={clsx(paragraphClass, "max-w-xs mx-auto")}>
             {workingHours.map(({ day, from, to }) => (
               <div key={day} className="flex mb-1">
                 <div>{day}</div>
@@ -47,27 +51,30 @@ const Footer: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className="w-1/3">
+        <div className="w-full sm:w-1/2 lg:w-1/3 mt-10 lg:mt-0 pl-5 lg:pl-0">
           <h5 className={titleClass}>Kontaktai</h5>
           <div className={paragraphClass}>
-            <div className="flex mb-1">
-              <div className="mr-2">Telefonas:</div>
+            <div className="mb-1">
+              <div className="inline-block mr-2">Telefonas:</div>
               <a
-                className="hover:text-white"
+                className="text-gray-300 hover:text-white"
                 href={`tel:${COMPANY_PHONE_NUMBER}`}
               >
                 {COMPANY_PHONE_NUMBER}
               </a>
             </div>
-            <div className="flex mb-1">
-              <div className="mr-2">Adresas:</div>
-              <a className="hover:text-white" href={COMPANY_MAPS_LINK}>
+            <div className="mb-1">
+              <div className="inline-block mr-2">Adresas:</div>
+              <a
+                className="text-gray-300 hover:text-white"
+                href={COMPANY_MAPS_LINK}
+              >
                 {COMPANY_ADDRESS}
               </a>
             </div>
-            <div className="flex mb-1">
-              <div className="mr-2">El. pastas:</div>
-              <div>{COMPANY_EMAIL}</div>
+            <div className="mb-1">
+              <div className="inline-block mr-2">El. pastas:</div>
+              <div className="text-gray-300 inline-block">{COMPANY_EMAIL}</div>
             </div>
           </div>
         </div>

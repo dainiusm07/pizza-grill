@@ -3,15 +3,16 @@ import React from "react";
 import Link from "next/link";
 import ContentContainer from "../ContentContainer/ContentContainer";
 import { navigationItems } from "./NavBar.data";
-import { useNavBarExpansion } from "./NavBar.hooks";
+import { useScroll } from "../../hooks/useScroll.hooks";
 import { LANDING_SECTION_ID } from "../../common/constants";
 import AppImage from "../AppImage/AppImage";
+import { useMedia } from "../../hooks/useMediaDown.hook";
 
 const classes = {
   wrapper: {
     normal: "fixed bg-white text-black",
     expanded:
-      "absolute bg-black text-white bg-opacity-20 border-white border-opacity-10",
+      "absolute bg-black text-white bg-opacity-20 border-t-0 border-l-0 border-r-0 border border-white border-opacity-10",
   },
   container: {
     normal: "py-2",
@@ -24,7 +25,8 @@ const classes = {
 };
 
 const NavBar: React.FC = () => {
-  const expanded = useNavBarExpansion();
+  const expanded = useScroll(300);
+  const isMobile = useMedia("sm");
 
   const getDynamicClass = (classOf: keyof typeof classes) => {
     if (expanded) {
@@ -36,15 +38,12 @@ const NavBar: React.FC = () => {
 
   return (
     <header
-      className={clsx(
-        "inset-x-0 z-10 shadow-md border-t-0 border-l-0 border-r-0 border",
-        getDynamicClass("wrapper")
-      )}
+      className={clsx("inset-x-0 z-10 shadow-md", getDynamicClass("wrapper"))}
     >
       <nav>
         <ContentContainer
           className={clsx(
-            "max-w-5xl mx-auto flex justify-center transition-spacing duration-300",
+            "max-w-5xl mx-auto flex justify-center transition-all duration-300",
             getDynamicClass("container")
           )}
         >
@@ -58,13 +57,15 @@ const NavBar: React.FC = () => {
               </a>
             </Link>
 
-            <ul className="flex ml-20">
-              {navigationItems.map(({ href, title }) => (
-                <li key={title} className="font-primary uppercase mx-4">
-                  <Link href={href}>{title}</Link>
-                </li>
-              ))}
-            </ul>
+            {!isMobile && (
+              <ul className="flex ml-20">
+                {navigationItems.map(({ href, title }) => (
+                  <li key={title} className="font-primary uppercase mx-4">
+                    <Link href={href}>{title}</Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </ContentContainer>
       </nav>

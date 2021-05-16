@@ -13,3 +13,7 @@ export const ABOUT_US_SECTION_ID = "about-us";
 export const DAILY_LUNCH_MENU_SECTION_ID = "daily-lunch-menu";
 export const REVIEW_SECTION_ID = "review";
 export const CONTACTS_SECTION_ID = "contacts";
+
+// Other
+export const CAROUSEL_INTERVAL = 3000;
+export const CAROUSEL_DURATION = 300;

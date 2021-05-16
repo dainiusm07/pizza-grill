@@ -18,7 +18,10 @@ const AppImage: React.FC<AppImageProps> = ({
   src,
   ...props
 }) => {
-  const style: React.CSSProperties = { backgroundImage: `url(${src})` };
+  const style: React.CSSProperties = {
+    // backgroundColor: "#000",
+    backgroundImage: `url(${src})`,
+  };
   const overlayStyle: React.CSSProperties = {
     backgroundColor: overlayColor,
     opacity: overlayOpacity,
@@ -27,13 +30,14 @@ const AppImage: React.FC<AppImageProps> = ({
   return (
     <div
       className={clsx(
-        "relative shadow-xl bg-cover bg-blend-darken bg-center overflow-hidden",
+        "relative z-1 shadow-xl bg-cover bg-blend-darken bg-center overflow-hidden",
         rounded && "rounded-lg",
         className
       )}
       style={style}
       {...props}
     >
+      {/* <div className="absolute inset-0 bg-black -z-1" /> */}
       {overlay && <div className="absolute inset-0" style={overlayStyle} />}
     </div>
   );
