@@ -12,7 +12,10 @@ const HomePage: NextComponentType = () => {
     <>
       <Head>
         <title>{PAGE_TITLE}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
       </Head>
       <LandingSection />
       <AboutUsSection />

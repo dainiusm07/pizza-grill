@@ -1,6 +1,7 @@
 import React from "react";
 import { REVIEW_SECTION_ID } from "../../common/constants";
 import { useMediaDown } from "../../hooks/useMediaDown.hook";
+import useVisibility from "../../hooks/useVisibility";
 import AppImage from "../AppImage/AppImage";
 import Button from "../Button/Button";
 import Section from "../Section/Section";
@@ -9,16 +10,27 @@ import TextField from "../TextField/TextField";
 
 const ReviewSection: React.FC = () => {
   const isSmDown = useMediaDown("sm");
+  const [isSectionVisible, ref] = useVisibility(30);
 
   const background = (
-    <AppImage overlay className="h-full w-full" src="landing_1.jpg" />
+    <AppImage
+      isVisible={isSectionVisible}
+      overlayOpacity={0.3}
+      className="h-full w-full"
+      src="landing_1.jpg"
+    />
   );
 
   return (
-    <Section id={REVIEW_SECTION_ID} container={false} background={background}>
+    <Section
+      id={REVIEW_SECTION_ID}
+      ref={ref}
+      container={false}
+      background={background}
+    >
       <div className="py-16">
         <div
-          data-aos={isSmDown ? "flip-up" : "flip-left"}
+          data-aos={!isSmDown && "flip-left"}
           className="w-full max-w-lg mx-auto bg-white text-black py-7 rounded-none sm:rounded-lg shadow-xl"
         >
           <div className="text-center">

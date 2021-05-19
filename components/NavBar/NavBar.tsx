@@ -8,12 +8,10 @@ import { LANDING_SECTION_ID } from "../../common/constants";
 import AppImage from "../AppImage/AppImage";
 import { useMediaDown } from "../../hooks/useMediaDown.hook";
 import MenuButton from "../MenuButton/MenuButton";
-import { useRendered } from "../../hooks/useRendered.hook";
 
 const NavBar: React.FC = () => {
   const isScrolledDown = useScroll(300);
   const isSmDown = useMediaDown("sm");
-  const isRendered = useRendered();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -54,9 +52,8 @@ const NavBar: React.FC = () => {
       >
         <ContentContainer
           className={clsx(
-            "safe max-w-5xl mx-auto flex justify-between items-center",
-            isExpanded ? "py-5 text-xl" : "py-2",
-            isRendered && "transition-spacing"
+            "max-w-5xl mx-auto flex justify-between items-center transition-spacing",
+            isExpanded ? "py-5 text-xl" : "py-2"
           )}
         >
           <Link href={`#${LANDING_SECTION_ID}`}>
@@ -68,6 +65,7 @@ const NavBar: React.FC = () => {
                     ? "h-16 w-16 border border-white border-opacity-20"
                     : "h-12 w-12"
                 )}
+                lazyLoad={false}
                 src="logo.png"
               />
             </a>

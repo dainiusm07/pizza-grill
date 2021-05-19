@@ -1,22 +1,30 @@
 import React from "react";
 import { DAILY_LUNCH_MENU_SECTION_ID } from "../../common/constants";
 import { useMediaDown } from "../../hooks/useMediaDown.hook";
-import { useRendered } from "../../hooks/useRendered.hook";
+import useVisibility from "../../hooks/useVisibility";
 import AppImage from "../AppImage/AppImage";
-import Carousel from "../Carousel/Carousel";
+import ImageCarousel from "../ImageCarousel/ImageCarousel";
+import { CarouselImageType } from "../ImageCarousel/ImageCarousel.types";
 import Section from "../Section/Section";
 import SectionTitle from "../SectionTitle/SectionTitle";
-import { dailyLunchMenuImages } from "./DailyLunchMenuSection.data";
+
+const images: CarouselImageType[] = [
+  {
+    src: "landing_1.jpg",
+  },
+  {
+    src: "landing_2.jpg",
+  },
+  {
+    src: "landing_3.jpg",
+  },
+];
 
 const DailyLunchMenuSection: React.FC = () => {
   const isSmDown = useMediaDown("sm");
-  const isRendered = useRendered();
+  const [isImagesContainerVisible, ref] = useVisibility<HTMLDivElement>(30);
 
   const background = <div className="h-full w-full bg-gray-100" />;
-
-  const carouselFrames = dailyLunchMenuImages.map((src) => (
-    <AppImage key={src} className="w-full h-full" src={src} />
-  ));
 
   return (
     <Section id={DAILY_LUNCH_MENU_SECTION_ID} background={background}>
@@ -33,22 +41,29 @@ const DailyLunchMenuSection: React.FC = () => {
             quidem?
           </p>
         </div>
-        <div className="mt-16 h-52">
-          {isRendered && isSmDown ? (
+        <div ref={ref} className="mt-16 h-52">
+          {isSmDown ? (
             <div
               data-aos="flip-left"
+              data-aos-delay="150"
               className="h-full rounded-lg overflow-hidden"
             >
-              <Carousel frames={carouselFrames} />
+              <ImageCarousel
+                play={isImagesContainerVisible}
+                showIndicators
+                images={images}
+              />
             </div>
           ) : (
-            <div className="flex">
-              {dailyLunchMenuImages.map((src, indx) => (
+            <div className="flex h-full">
+              {images.map(({ src, overlayOpacity }, indx) => (
                 <AppImage
                   key={src}
-                  rounded
-                  className="w-1/3 m-2 h-52"
                   src={src}
+                  isVisible={isImagesContainerVisible}
+                  className="w-1/3 mx-2"
+                  rounded
+                  overlayOpacity={overlayOpacity}
                   data-aos="fade-up"
                   data-aos-delay={50 + indx * 100}
                 />

@@ -1,0 +1,25 @@
+.slick-slider,
+.slick-list,
+.slick-track,
+.slick-slide div {
+  height: 100%;
+}
+
+.slick-dots {
+  bottom: 10px;
+}
+
+.slick-dots li {
+  margin: 1px;
+}
+
+.slick-dots li button:before {
+  color: white;
+  font-size: 10px;
+  opacity: 0.4;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white;
+  opacity: 0.9;
+}

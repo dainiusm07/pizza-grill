@@ -1,31 +1,47 @@
 import React from "react";
 import { COMPANY_NAME, LANDING_SECTION_ID } from "../../common/constants";
-import AppImage from "../AppImage/AppImage";
+import useVisibility from "../../hooks/useVisibility";
 import Button from "../Button/Button";
-import Carousel from "../Carousel/Carousel";
+import ImageCarousel from "../ImageCarousel/ImageCarousel";
+import { CarouselImageType } from "../ImageCarousel/ImageCarousel.types";
 import Section from "../Section/Section";
 
+const carouselImages: CarouselImageType[] = [
+  {
+    src: "pica.jpg",
+    overlayOpacity: 0.5,
+  },
+  {
+    src: "landing_1.jpg",
+    overlayOpacity: 0.5,
+  },
+  {
+    src: "landing_2.jpg",
+    overlayOpacity: 0.5,
+  },
+  {
+    src: "landing_3.jpg",
+    overlayOpacity: 0.5,
+  },
+];
+
 const LandingSection: React.FC = () => {
-  const carouselFrames = [
-    <AppImage
-      overlay
-      overlayOpacity={0.5}
-      className="h-full w-full"
-      src="pica.jpg"
-    />,
-    <AppImage
-      overlay
-      overlayOpacity={0.5}
-      className="h-full w-full"
-      src="landing_1.jpg"
-    />,
-  ];
+  const [isSectionVisible, ref] = useVisibility();
+
+  const background = (
+    <ImageCarousel
+      play={isSectionVisible}
+      showIndicators={false}
+      images={carouselImages}
+    />
+  );
 
   return (
     <Section
       className="h-screen w-screen"
       id={LANDING_SECTION_ID}
-      background={<Carousel frames={carouselFrames} />}
+      ref={ref}
+      background={background}
     >
       <div className="h-full flex items-center justify-center">
         <div className="max-w-lg mx-auto">
