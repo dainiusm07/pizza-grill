@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import ContentContainer from "../ContentContainer/ContentContainer";
 import { navigationItems } from "./NavBar.data";
-import { useScroll } from "../../hooks/useScroll.hooks";
+import { useScroll } from "../../hooks/useScroll.hook";
 import { LANDING_SECTION_ID } from "../../common/constants";
 import AppImage from "../AppImage/AppImage";
 import { useMediaDown } from "../../hooks/useMediaDown.hook";
@@ -47,7 +47,8 @@ const NavBar: React.FC = () => {
           isExpanded
             ? "absolute bg-black text-white bg-opacity-20 border-t-0 border-l-0 border-r-0 border border-white border-opacity-10"
             : "fixed bg-white text-black",
-          isSmDown && "px-3"
+          isSmDown && "px-3",
+          (isSmDown === null || isScrolledDown === null) && "hidden"
         )}
       >
         <ContentContainer

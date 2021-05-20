@@ -66,10 +66,19 @@ const AppImage = forwardRef<HTMLDivElement, AppImageProps>(
       opacity: overlayOpacity,
     };
 
+    const renderLoadingOverlay = () => (
+      <div className="absolute inset-0 bg-gray-400" />
+    );
+
+    const renderOpacityOverlay = () =>
+      Boolean(overlayOpacity) && (
+        <div className="absolute inset-0" style={overlayStyle} />
+      );
+
     return (
       <div
         className={clsx(
-          "relative z-1 shadow-xl bg-cover bg-blend-darken bg-center overflow-hidden",
+          "relative z-1 shadow-xl bg-cover bg-center overflow-hidden",
           rounded && "rounded-lg",
           className
         )}
@@ -77,9 +86,7 @@ const AppImage = forwardRef<HTMLDivElement, AppImageProps>(
         style={imageStyle}
         {...props}
       >
-        {Boolean(overlayOpacity) && (
-          <div className="absolute inset-0" style={overlayStyle} />
-        )}
+        {isLoading ? renderLoadingOverlay() : renderOpacityOverlay()}
       </div>
     );
   }

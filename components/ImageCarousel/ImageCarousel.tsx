@@ -23,6 +23,8 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
     }
   }, [play]);
 
+  const appendDots = (dots: JSX.Element[]) => <ul>{dots}</ul>;
+
   const carouselItems = images.map(({ src, overlayOpacity }, indx) => (
     <AppImage
       key={src}
@@ -35,10 +37,13 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
   return (
     <Slider
+      className="h-full"
       ref={ref}
+      arrows={false}
       autoplay={true}
       lazyLoad="progressive"
       dots={showIndicators}
+      appendDots={appendDots}
       infinite
       autoplaySpeed={CAROUSEL_INTERVAL}
       speed={CAROUSEL_DURATION}

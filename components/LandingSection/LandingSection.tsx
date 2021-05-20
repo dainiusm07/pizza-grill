@@ -1,6 +1,6 @@
 import React from "react";
 import { COMPANY_NAME, LANDING_SECTION_ID } from "../../common/constants";
-import useVisibility from "../../hooks/useVisibility";
+import useVisibility from "../../hooks/useVisibility.hook";
 import Button from "../Button/Button";
 import ImageCarousel from "../ImageCarousel/ImageCarousel";
 import { CarouselImageType } from "../ImageCarousel/ImageCarousel.types";

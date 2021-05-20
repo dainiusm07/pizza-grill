@@ -1,6 +1,6 @@
 import React from "react";
 import { ABOUT_US_SECTION_ID } from "../../common/constants";
-import useVisibility from "../../hooks/useVisibility";
+import useVisibility from "../../hooks/useVisibility.hook";
 import AppImage from "../AppImage/AppImage";
 import Section from "../Section/Section";
 import SectionTitle from "../SectionTitle/SectionTitle";

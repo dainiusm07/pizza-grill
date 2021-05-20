@@ -29,14 +29,14 @@ const breakpoints: Breakpoint[] = [
 ];
 
 export const useMediaDown = (size: Breakpoint["size"]) => {
-  const [width, setWidth] = useState(0);
+  const [isDown, setIsDown] = useState<boolean>(null);
 
   const breakpointWidth = breakpoints.find(
     (breakpoint) => breakpoint.size === size
   ).width;
 
   const handleResizeEvent = () => {
-    setWidth(window.innerWidth);
+    setIsDown(window.innerWidth <= breakpointWidth);
   };
 
   useEffect(() => {
@@ -49,5 +49,5 @@ export const useMediaDown = (size: Breakpoint["size"]) => {
     }
   }, []);
 
-  return breakpointWidth >= width && width !== 0;
+  return isDown;
 };

@@ -1,5 +1,6 @@
 import "tailwindcss/tailwind.css";
 import "aos/dist/aos.css";
+import "slick-carousel/slick/slick.css";
 import "../styles/CarouselOverrides.css";
 
 import { useEffect } from "react";

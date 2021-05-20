@@ -1,7 +1,7 @@
 import React from "react";
 import { DAILY_LUNCH_MENU_SECTION_ID } from "../../common/constants";
 import { useMediaDown } from "../../hooks/useMediaDown.hook";
-import useVisibility from "../../hooks/useVisibility";
+import useVisibility from "../../hooks/useVisibility.hook";
 import AppImage from "../AppImage/AppImage";
 import ImageCarousel from "../ImageCarousel/ImageCarousel";
 import { CarouselImageType } from "../ImageCarousel/ImageCarousel.types";
