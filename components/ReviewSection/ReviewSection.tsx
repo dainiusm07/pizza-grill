@@ -2,6 +2,7 @@ import React from "react";
 import { REVIEW_SECTION_ID } from "../../common/constants";
 import { useMediaDown } from "../../hooks/useMediaDown.hook";
 import useVisibility from "../../hooks/useVisibility.hook";
+import Anchor from "../Anchor/Anchor";
 import AppImage from "../AppImage/AppImage";
 import Button from "../Button/Button";
 import Section from "../Section/Section";
@@ -22,12 +23,8 @@ const ReviewSection: React.FC = () => {
   );
 
   return (
-    <Section
-      id={REVIEW_SECTION_ID}
-      ref={ref}
-      container={false}
-      background={background}
-    >
+    <Section ref={ref} container={false} background={background}>
+      <Anchor id={REVIEW_SECTION_ID} />
       <div className="py-16">
         <div
           data-aos={!isSmDown && "flip-left"}

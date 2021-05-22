@@ -85,7 +85,7 @@ const NavBar: React.FC = () => {
       {isSmDown && (
         <div
           className={clsx(
-            "fixed bg-white inset-0 z-40 flex text-3xl items-center justify-center transform transition-transform",
+            "fixed bg-white inset-0 z-40 flex text-3xl items-center justify-center transform transition",
             menuOpen ? "translate-x-0" : "translate-x-full"
           )}
         >

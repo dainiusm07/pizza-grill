@@ -2,6 +2,7 @@ import React from "react";
 import { DAILY_LUNCH_MENU_SECTION_ID } from "../../common/constants";
 import { useMediaDown } from "../../hooks/useMediaDown.hook";
 import useVisibility from "../../hooks/useVisibility.hook";
+import Anchor from "../Anchor/Anchor";
 import AppImage from "../AppImage/AppImage";
 import ImageCarousel from "../ImageCarousel/ImageCarousel";
 import { CarouselImageType } from "../ImageCarousel/ImageCarousel.types";
@@ -27,7 +28,8 @@ const DailyLunchMenuSection: React.FC = () => {
   const background = <div className="h-full w-full bg-gray-100" />;
 
   return (
-    <Section id={DAILY_LUNCH_MENU_SECTION_ID} background={background}>
+    <Section background={background}>
+      <Anchor id={DAILY_LUNCH_MENU_SECTION_ID} />
       <div className="py-20">
         <div
           data-aos="zoom-in-up"

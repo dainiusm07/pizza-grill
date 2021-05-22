@@ -8,18 +8,22 @@ import {
   CONTACTS_SECTION_ID,
   COMPANY_FACEBOOK_LINK,
 } from "../../common/constants";
+import useVisibility from "../../hooks/useVisibility.hook";
 import AppImage from "../AppImage/AppImage";
 import ContentContainer from "../ContentContainer/ContentContainer";
 import { workingHours } from "./Footer.data";
 
+const currentYear = new Date().getFullYear();
+
 const Footer: React.FC = () => {
   const titleClass = "font-semibold text-lg";
   const paragraphClass = "mt-6 text-gray-400";
-  const currentYear = new Date().getFullYear();
+
+  const [isVisible, ref] = useVisibility();
 
   return (
     <footer
-      id={CONTACTS_SECTION_ID}
+      ref={ref}
       className="bg-black text-white px-3 lg:px-0 text-center lg:text-left"
     >
       <ContentContainer className="flex flex-row flex-wrap pt-20 pb-10">
@@ -34,7 +38,11 @@ const Footer: React.FC = () => {
           </div>
           <div className="w-full lg:w-1/3 mt-10 flex justify-center lg:justify-start">
             <a href={COMPANY_FACEBOOK_LINK}>
-              <AppImage className="h-8 w-8" src="facebook-flat.svg" />
+              <AppImage
+                isVisible={isVisible}
+                className="h-8 w-8 rounded-full"
+                src="facebook-flat.svg"
+              />
             </a>
           </div>
         </div>
@@ -51,7 +59,10 @@ const Footer: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className="w-full sm:w-1/2 lg:w-1/3 mt-10 lg:mt-0 sm:pl-5 lg:pl-0">
+        <div
+          id={CONTACTS_SECTION_ID}
+          className="w-full sm:w-1/2 lg:w-1/3 mt-10 lg:mt-0 sm:pl-5 lg:pl-0"
+        >
           <h5 className={titleClass}>Kontaktai</h5>
           <div className={paragraphClass}>
             <div className="mb-1">

@@ -1,6 +1,7 @@
 import React from "react";
 import { ABOUT_US_SECTION_ID } from "../../common/constants";
 import useVisibility from "../../hooks/useVisibility.hook";
+import Anchor from "../Anchor/Anchor";
 import AppImage from "../AppImage/AppImage";
 import Section from "../Section/Section";
 import SectionTitle from "../SectionTitle/SectionTitle";
@@ -9,7 +10,8 @@ const AboutUsSection: React.FC = () => {
   const [isImageVisible, ref] = useVisibility<HTMLDivElement>(30);
 
   return (
-    <Section id={ABOUT_US_SECTION_ID}>
+    <Section>
+      <Anchor id={ABOUT_US_SECTION_ID} />
       <div className="flex flex-col sm:flex-row py-20 text-black items-center">
         <div
           data-aos="fade-right"
