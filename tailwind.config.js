@@ -1,3 +1,6 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+// const plugin = require("tailwindcss/plugin");
+
 module.exports = {
   purge: {
     content: [
@@ -5,15 +8,13 @@ module.exports = {
       "./components/**/*.{js,ts,jsx,tsx}",
     ],
     defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
-    // options: {
-    //   safelist: {
-    //     greedy: ["/safe$/"],
-    //   },
-    // },
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Roboto", ...defaultTheme.fontFamily.sans],
+      },
       backdropBlur: {
         1: "1px",
       },
@@ -29,5 +30,15 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    ({ addComponents }) => {
+      addComponents([
+        {
+          ".font-primary": {
+            fontFamily: "'Lora', serif",
+          },
+        },
+      ]);
+    },
+  ],
 };
