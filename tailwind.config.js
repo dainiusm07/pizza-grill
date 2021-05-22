@@ -14,6 +14,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backdropBlur: {
+        1: "1px",
+      },
       zIndex: {
         "-1": "-1",
         100: "100",

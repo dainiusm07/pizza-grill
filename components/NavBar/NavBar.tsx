@@ -45,7 +45,9 @@ const NavBar: React.FC = () => {
         className={clsx(
           "inset-x-0 z-50 shadow-md",
           isExpanded
-            ? "absolute bg-black text-white bg-opacity-20 border-t-0 border-l-0 border-r-0 border border-white border-opacity-10"
+            ? `absolute bg-black text-white bg-opacity-20 border-t-0
+            border-l-0 border-r-0 border border-white border-opacity-10
+            backdrop-filter backdrop-blur-1`
             : "fixed bg-white text-black",
           isSmDown && "px-3",
           (isSmDown === null || isScrolledDown === null) && "hidden"
