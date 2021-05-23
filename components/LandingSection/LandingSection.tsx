@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { COMPANY_NAME, LANDING_SECTION_ID } from "../../common/constants";
 import useVisibility from "../../hooks/useVisibility.hook";
@@ -53,7 +54,11 @@ const LandingSection: React.FC = () => {
             molestiae consequuntur labore esse incidunt saepe molestias
           </p>
           <div className="text-center mt-10">
-            <Button size="large">Meniu</Button>
+            <Link href="/menu">
+              <a>
+                <Button size="large">Meniu</Button>
+              </a>
+            </Link>
           </div>
         </div>
       </div>

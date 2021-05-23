@@ -11,7 +11,7 @@ import MenuButton from "../MenuButton/MenuButton";
 
 const NavBar: React.FC = () => {
   const isScrolledDown = useScroll(300);
-  const isSmDown = useMediaDown("sm");
+  const isMdDown = useMediaDown("md");
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const NavBar: React.FC = () => {
     setMenuOpen((open) => !open);
   };
 
-  const isExpanded = isScrolledDown && !isSmDown;
+  const isExpanded = isScrolledDown && !isMdDown;
 
   const renderNavigationItems = (menuView?: boolean) =>
     navigationItems.map(({ href, title }) => (
@@ -49,8 +49,8 @@ const NavBar: React.FC = () => {
             border-l-0 border-r-0 border border-white border-opacity-10
             backdrop-filter backdrop-blur-1`
             : "fixed bg-white text-black",
-          isSmDown && "px-3",
-          (isSmDown === null || isScrolledDown === null) && "hidden"
+          isMdDown && "px-3",
+          (isMdDown === null || isScrolledDown === null) && "hidden"
         )}
       >
         <ContentContainer
@@ -59,8 +59,8 @@ const NavBar: React.FC = () => {
             isExpanded ? "py-5 text-xl" : "py-2"
           )}
         >
-          <Link href={`#${LANDING_SECTION_ID}`}>
-            <a href={`#${LANDING_SECTION_ID}`} onClick={handleNavigation}>
+          <Link href={`/#${LANDING_SECTION_ID}`}>
+            <a onClick={handleNavigation}>
               <AppImage
                 className={clsx(
                   "rounded-full",
@@ -74,7 +74,7 @@ const NavBar: React.FC = () => {
             </a>
           </Link>
 
-          {isSmDown ? (
+          {isMdDown ? (
             <MenuButton
               mode={menuOpen ? "close" : "open"}
               onClick={handleMenuButtonClick}
@@ -84,7 +84,7 @@ const NavBar: React.FC = () => {
           )}
         </ContentContainer>
       </nav>
-      {isSmDown && (
+      {isMdDown && (
         <div
           className={clsx(
             "fixed bg-white inset-0 z-40 flex text-3xl items-center justify-center transform transition",

@@ -8,6 +8,7 @@ export const COMPANY_MAPS_LINK =
 export const COMPANY_PHONE_NUMBER = "(8-600) 67042";
 
 export const PAGE_TITLE = COMPANY_NAME;
+export const MENU_PDF_LINK = "http://www.africau.edu/images/default/sample.pdf";
 
 // Page sections ids
 export const LANDING_SECTION_ID = "landing";
