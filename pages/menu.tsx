@@ -15,6 +15,10 @@ const MenuPage: NextComponentType = () => {
     <>
       <Head>
         <title>Meniu | {COMPANY_NAME}</title>
+        <meta
+          name="description"
+          content="Pizza & Grill – tai picų ir ant žarijų kepamų patiekalų laisvalaikio restoranėlis, įsikūręs turistų pamėgtame mieste - Trakuose."
+        />
       </Head>
       {menuFrame}
     </>

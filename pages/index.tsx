@@ -8,13 +8,19 @@ import LandingSection from "../components/LandingSection/LandingSection";
 import ReviewSection from "../components/ReviewSection/ReviewSection";
 
 const HomePage: NextComponentType = () => {
+  const title = `Pagrindinis | ${COMPANY_NAME}`;
+
   return (
     <>
       <Head>
-        <title>Pagrindinis | {COMPANY_NAME}</title>
+        <title>{title}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <meta
+          name="description"
+          content="Pizza & Grill – tai picų ir ant žarijų kepamų patiekalų laisvalaikio restoranėlis, įsikūręs turistų pamėgtame mieste - Trakuose."
         />
         <link rel="preload" href="logo.png" as="image" />
         <link rel="preload" href="landing_1.jpg" as="image" />
