@@ -1,7 +1,7 @@
 import { NextComponentType } from "next";
+import Head from "next/head";
 import React from "react";
-import Section from "../components/Section/Section";
-import { MENU_PDF_LINK } from "../common/constants";
+import { COMPANY_NAME, MENU_PDF_LINK } from "../common/constants";
 
 const MenuPage: NextComponentType = () => {
   const menuFrame = (
@@ -11,7 +11,14 @@ const MenuPage: NextComponentType = () => {
     />
   );
 
-  return <Section container={false}>{menuFrame}</Section>;
+  return (
+    <>
+      <Head>
+        <title>Meniu | {COMPANY_NAME}</title>
+      </Head>
+      {menuFrame}
+    </>
+  );
 };
 
 export default MenuPage;

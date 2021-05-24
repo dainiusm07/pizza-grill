@@ -1,7 +1,7 @@
 import { NextComponentType } from "next";
 import Head from "next/head";
 import React from "react";
-import { PAGE_TITLE } from "../common/constants";
+import { COMPANY_NAME } from "../common/constants";
 import AboutUsSection from "../components/AboutUsSection/AboutUsSection";
 import DailyLunchMenuSection from "../components/DailyLunchMenuSection/DailyLunchMenuSection";
 import LandingSection from "../components/LandingSection/LandingSection";
@@ -11,10 +11,21 @@ const HomePage: NextComponentType = () => {
   return (
     <>
       <Head>
-        <title>{PAGE_TITLE}</title>
+        <title>Pagrindinis | {COMPANY_NAME}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <link rel="preload" href="logo.png" as="image" />
+        <link rel="preload" href="landing_1.jpg" as="image" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400&display=swap"
+          rel="stylesheet"
         />
       </Head>
       <LandingSection />

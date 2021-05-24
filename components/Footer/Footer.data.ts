@@ -16,7 +16,7 @@ export const workingHours: WorkingHours[] = [
     to: "22:00",
   },
   {
-    day: "Treciadienis",
+    day: "Trečiadienis",
     from: "10:00",
     to: "22:00",
   },
@@ -31,7 +31,7 @@ export const workingHours: WorkingHours[] = [
     to: "22:00",
   },
   {
-    day: "Sestadienis",
+    day: "Šeštadienis",
     from: "10:00",
     to: "22:00",
   },

@@ -21,11 +21,11 @@ export const navigationItems: NavigationItem[] = [
   },
   {
     href: "/#" + DAILY_LUNCH_MENU_SECTION_ID,
-    title: "Dienos pietus",
+    title: "Dienos pietūs",
   },
   {
     href: "/#" + REVIEW_SECTION_ID,
-    title: "Atsiliepimas",
+    title: "Atsiliepimai",
   },
   {
     href: "/#" + CONTACTS_SECTION_ID,

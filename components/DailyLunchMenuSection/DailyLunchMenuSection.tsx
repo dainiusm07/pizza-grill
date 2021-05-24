@@ -11,13 +11,13 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 const images: CarouselImageType[] = [
   {
-    src: "landing_1.jpg",
+    src: "daily_1.jpeg",
   },
   {
-    src: "landing_2.jpg",
+    src: "daily_2.jpeg",
   },
   {
-    src: "landing_3.jpg",
+    src: "daily_3.jpeg",
   },
 ];
 
@@ -33,14 +33,13 @@ const DailyLunchMenuSection: React.FC = () => {
       <div className="py-20">
         <div
           data-aos="zoom-in-up"
-          className="max-w-md mx-auto text-center text-black"
+          className="max-w-4xl mx-auto text-center text-black"
         >
-          <SectionTitle>Dienos pietus</SectionTitle>
-          <p className="mt-6 text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-            earum laborum nesciunt possimus ab, vel veritatis rerum quia ut
-            ipsam, et inventore quasi sit quis iste vitae nihil voluptatem
-            quidem?
+          <SectionTitle>Dienos pietūs</SectionTitle>
+          <p className="mt-6 text-lg">
+            Darbo dienomis nuo 11.00 iki 15.00 val. Visus kviečiame skaniai ir
+            sočiai papietauti pas mus. Kiekvieną dieną siūlome vis naują dienos
+            pietų pasiūlymą: sriubą, karštą patiekalą bei dienos picą.
           </p>
         </div>
         <div ref={ref} className="mt-16 h-52">

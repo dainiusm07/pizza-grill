@@ -5,6 +5,7 @@ import NextDocument, {
   Main,
   NextScript,
 } from "next/document";
+import { COMPANY_NAME } from "../common/constants";
 
 class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
@@ -16,18 +17,7 @@ class Document extends NextDocument {
   render() {
     return (
       <Html>
-        <Head>
-          <link rel="preload" href="logo.png" as="image" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
+        <Head lang="lt" />
         <body>
           <Main />
           <NextScript />

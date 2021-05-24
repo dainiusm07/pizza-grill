@@ -59,6 +59,7 @@ const AppImage = forwardRef<HTMLDivElement, AppImageProps>(
     const imageStyle: React.CSSProperties = {
       ...style,
       backgroundImage: loaded ? `url(${src})` : undefined,
+      // transform: "scale(1.3)",
     };
 
     const overlayStyle: React.CSSProperties = {
@@ -78,14 +79,15 @@ const AppImage = forwardRef<HTMLDivElement, AppImageProps>(
     return (
       <div
         className={clsx(
-          "relative z-1 shadow-xl bg-cover bg-center overflow-hidden",
+          "relative z-1 shadow-xl overflow-hidden",
           rounded && "rounded-lg",
           className
         )}
         ref={ref}
-        style={imageStyle}
+        // style={imageStyle}
         {...props}
       >
+        <div className="h-full w-full bg-cover bg-center" style={imageStyle} />
         {isLoading ? renderLoadingOverlay() : renderOpacityOverlay()}
       </div>
     );

@@ -31,9 +31,7 @@ const Footer: React.FC = () => {
           <div className="max-w-md mx-auto">
             <h5 className={titleClass}>{COMPANY_NAME}</h5>
             <p className={paragraphClass}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut ipsa
-              asperiores pariatur quasi itaque inventore fuga libero eius quos
-              ex dolorum
+              Mūsų misija – pradžiuginti savo klientus gaminant maistą su meile
             </p>
           </div>
           <div className="w-full lg:w-1/3 mt-10 flex justify-center lg:justify-start">
@@ -84,7 +82,7 @@ const Footer: React.FC = () => {
               </a>
             </div>
             <div className="mb-1">
-              <div className="inline-block mr-2">El. pastas:</div>
+              <div className="inline-block mr-2">El. paštas:</div>
               <div className="text-gray-300 inline-block">{COMPANY_EMAIL}</div>
             </div>
           </div>

@@ -9,10 +9,6 @@ import Section from "../Section/Section";
 
 const carouselImages: CarouselImageType[] = [
   {
-    src: "pica.jpg",
-    overlayOpacity: 0.5,
-  },
-  {
     src: "landing_1.jpg",
     overlayOpacity: 0.5,
   },
@@ -22,6 +18,14 @@ const carouselImages: CarouselImageType[] = [
   },
   {
     src: "landing_3.jpg",
+    overlayOpacity: 0.5,
+  },
+  {
+    src: "landing_4.jpg",
+    overlayOpacity: 0.5,
+  },
+  {
+    src: "landing_5.jpg",
     overlayOpacity: 0.5,
   },
 ];
@@ -45,13 +49,12 @@ const LandingSection: React.FC = () => {
       background={background}
     >
       <div className="h-full flex items-center justify-center">
-        <div className="max-w-lg mx-auto">
-          <h1 className="font-primary text-5xl font-semibold text-center">
+        <div className="max-w-md mx-auto">
+          <h1 className="font-primary text-6xl font-semibold text-center">
             {COMPANY_NAME}
           </h1>
           <p className="mt-5 text-xl text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            molestiae consequuntur labore esse incidunt saepe molestias
+            Mūsų misija – pradžiuginti savo klientus gaminant maistą su meile
           </p>
           <div className="text-center mt-10">
             <Link href="/menu">

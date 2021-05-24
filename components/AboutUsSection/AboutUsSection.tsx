@@ -15,14 +15,17 @@ const AboutUsSection: React.FC = () => {
       <div className="flex flex-col sm:flex-row py-20 text-black items-center">
         <div
           data-aos="fade-right"
-          className="w-full sm:w-1/2 sm:pr-10 text-center sm:text-left"
+          className="w-full sm:w-1/2 sm:pr-20 text-center sm:text-left"
         >
           <SectionTitle>Apie mus</SectionTitle>
-          <p className="mt-6 text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt,
-            dolore dignissimos vero eligendi, officiis pariatur nam omnis earum
-            ipsam nihil exercitationem vitae assumenda, ex doloribus at
-            excepturi fugiat minima iure?
+          <p className="mt-6 text-lg text-justify">
+            Pizza & Grill – tai picų ir ant žarijų kepamų patiekalų laisvalaikio
+            restoranėlis, įsikūręs turistų pamėgtame mieste - Trakuose. Mūsų
+            komanda kiekvieną diena yra nusiteikę rankomis su meile pagaminti
+            mėsainius, picas, kurių tešlą maišome pagal tam tikrą receptūrą,
+            griliaus patiekalus, salotas ar gaiviuosius kokteilius. Kiekvieną
+            dieną laukiame Jūsų tiek terasoje tiek vidinėje salėje, kur galėsite
+            mėgautis gardžiaisias patiekalais bei gera atmosfera.
           </p>
         </div>
         <AppImage
@@ -31,7 +34,7 @@ const AboutUsSection: React.FC = () => {
           data-aos="fade-left"
           rounded
           className="w-full mt-10 sm:mt-0 sm:w-1/2 h-60 sm:h-96"
-          src="pica.jpg"
+          src="about-us.jpg"
         />
       </div>
     </Section>
