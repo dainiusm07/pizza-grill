@@ -50,10 +50,10 @@ const LandingSection: React.FC = () => {
     >
       <div className="h-full flex items-center justify-center">
         <div className="max-w-md mx-auto">
-          <h1 className="font-primary text-6xl font-semibold text-center">
+          <h1 className="font-primary text-5xl sm:text-7xl font-semibold text-center">
             {COMPANY_NAME}
           </h1>
-          <p className="mt-5 text-xl text-center">
+          <p className="mt-5 text-xl sm:text-2xl text-center">
             Mūsų misija – pradžiuginti savo klientus gaminant maistą su meile
           </p>
           <div className="text-center mt-10">

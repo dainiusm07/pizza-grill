@@ -11,13 +11,16 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 const images: CarouselImageType[] = [
   {
-    src: "daily_1.jpeg",
+    src: "daily_1.jpg",
+    overlayOpacity: 0.1,
   },
   {
-    src: "daily_2.jpeg",
+    src: "daily_2.jpg",
+    overlayOpacity: 0.1,
   },
   {
-    src: "daily_3.jpeg",
+    src: "daily_3.jpg",
+    overlayOpacity: 0.1,
   },
 ];
 
