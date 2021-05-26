@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={clsx(
-        "font-primary focus:outline-none border transition duration-300 rounded uppercase",
+        "font-semibold focus:outline-none border transition duration-300 rounded uppercase",
         sizeClass,
         "bg-black text-white border-white hover:bg-white hover:text-black hover:border-black",
         className

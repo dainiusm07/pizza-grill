@@ -40,9 +40,9 @@ const DailyLunchMenuSection: React.FC = () => {
         >
           <SectionTitle>Dienos pietūs</SectionTitle>
           <p className="mt-6 text-lg text-justify sm:text-center">
-            Darbo dienomis nuo 11.00 iki 15.00 val. Visus kviečiame skaniai ir
-            sočiai papietauti pas mus. Kiekvieną dieną siūlome vis naują dienos
-            pietų pasiūlymą: sriubą, karštą patiekalą bei dienos picą.
+            Darbo dienomis nuo 11.00 val. iki 15.00 val. visus kviečiame skaniai
+            ir sočiai papietauti pas mus. Kiekvieną dieną siūlome vis naują
+            dienos pietų pasiūlymą: sriubą, karštą patiekalą bei dienos picą.
           </p>
         </div>
         <div ref={ref} className="mt-16 h-52">

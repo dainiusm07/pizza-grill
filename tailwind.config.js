@@ -35,7 +35,7 @@ module.exports = {
       addComponents([
         {
           ".font-primary": {
-            fontFamily: "'Lora', serif",
+            fontFamily: "'Bree Serif', serif",
           },
         },
       ]);

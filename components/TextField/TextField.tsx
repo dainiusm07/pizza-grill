@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export type TextFieldProps = Omit<
   React.DetailedHTMLProps<
@@ -41,7 +41,7 @@ const TextField: React.FC<TextFieldProps> = ({
   return (
     <div className={clsx("flex flex-col", className)}>
       {Boolean(label) && (
-        <label className="font-primary text-lg mb-1 ml-1">{label}</label>
+        <label className="font-semibold text-lg mb-1 ml-1">{label}</label>
       )}
       <InputElement
         value={value}

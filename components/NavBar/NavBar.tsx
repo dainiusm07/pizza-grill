@@ -32,7 +32,7 @@ const NavBar: React.FC = () => {
     navigationItems.map(({ href, title }) => (
       <li
         key={title}
-        className={clsx("font-primary uppercase mx-4", menuView && "mb-7")}
+        className={clsx("font-semibold uppercase mx-4", menuView && "mb-7")}
         onClick={handleNavigation}
       >
         <Link href={href}>{title}</Link>

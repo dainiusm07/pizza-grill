@@ -30,7 +30,7 @@ const HomePage: NextComponentType = () => {
           rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap"
           rel="stylesheet"
         />
       </Head>

@@ -1,6 +1,6 @@
 export const COMPANY_NAME = "Pizza & Grill";
 export const COMPANY_ADDRESS = "Vytauto g. 60, Trakai";
-export const COMPANY_EMAIL = "pizza-grill@gmail.com";
+export const COMPANY_EMAIL = "pizzagrill.trakai@gmail.com";
 export const COMPANY_FACEBOOK_LINK =
   "https://www.facebook.com/PizzaGrill-Trakai-1469388326686959";
 export const COMPANY_MAPS_LINK =
@@ -8,7 +8,7 @@ export const COMPANY_MAPS_LINK =
 export const COMPANY_PHONE_NUMBER = "(8-626) 99090";
 
 export const GOOGLE_SHEETS_EMAIL_SCRIPT_LINK =
-  "https://script.google.com/macros/s/AKfycbxGkHGc3B9uY-IKbLEuYindFdWQzI1cc4MYZHWH_CBRjXUJtPloofbInjaZq0pi4EKB/exec";
+  "https://script.google.com/macros/s/AKfycbzQYQf6iz55IjrYsOIpumclqUYUrrSsMerrCtBf5279ziOuSTGY1aLI1exrlDA0jnW6Jg/exec";
 
 // Page sections ids
 export const LANDING_SECTION_ID = "pagrindinis";
