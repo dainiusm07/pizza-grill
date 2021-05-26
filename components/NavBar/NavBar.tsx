@@ -10,7 +10,7 @@ import { useMediaDown } from "../../hooks/useMediaDown.hook";
 import MenuButton from "../MenuButton/MenuButton";
 
 const NavBar: React.FC = () => {
-  const isScrolledDown = useScroll(300);
+  const isScrolledDown = useScroll(150);
   const isMdDown = useMediaDown("md");
   const [menuOpen, setMenuOpen] = useState(false);
 

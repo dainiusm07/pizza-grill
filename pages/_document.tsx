@@ -17,7 +17,9 @@ class Document extends NextDocument {
   render() {
     return (
       <Html>
-        <Head lang="lt" />
+        <Head lang="lt">
+          <link rel="shortcut icon" href="favicon.ico" />
+        </Head>
         <body>
           <Main />
           <NextScript />
