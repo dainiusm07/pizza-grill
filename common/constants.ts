@@ -8,7 +8,7 @@ export const COMPANY_MAPS_LINK =
 export const COMPANY_PHONE_NUMBER = "(8-626) 99090";
 
 export const GOOGLE_SHEETS_EMAIL_SCRIPT_LINK =
-  "https://script.google.com/macros/s/AKfycbyqb8214jfPvDlzVEc9787RJgbl0BI7KLHCnfP0d54HgWh5RkWnbWr6SjkQTvdk3OD1/exec";
+  "https://script.google.com/macros/s/AKfycbxGkHGc3B9uY-IKbLEuYindFdWQzI1cc4MYZHWH_CBRjXUJtPloofbInjaZq0pi4EKB/exec";
 
 // Page sections ids
 export const LANDING_SECTION_ID = "pagrindinis";

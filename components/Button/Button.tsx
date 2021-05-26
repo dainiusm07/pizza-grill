@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const sizeClass = size === "large" ? "text-2xl px-7 py-2" : "py-1 px-4";
+  const sizeClass = size === "large" ? "text-2xl px-7 py-2" : "py-1.5 px-4";
 
   return (
     <button

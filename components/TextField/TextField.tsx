@@ -17,7 +17,7 @@ export type TextFieldProps = Omit<
 
 const TextField: React.FC<TextFieldProps> = ({
   label,
-  value: valueFromProps = "",
+  value,
   onChange,
   className,
   multiline,
@@ -26,8 +26,6 @@ const TextField: React.FC<TextFieldProps> = ({
   placeholder,
   type,
 }) => {
-  const [value, setValue] = useState(valueFromProps);
-
   const InputElement = multiline ? "textarea" : "input";
 
   const handleInput = (
@@ -37,14 +35,8 @@ const TextField: React.FC<TextFieldProps> = ({
   ) => {
     if (onChange) {
       onChange(event.target.value);
-    } else {
-      setValue(event.target.value);
     }
   };
-
-  useEffect(() => {
-    setValue(valueFromProps);
-  }, [valueFromProps]);
 
   return (
     <div className={clsx("flex flex-col", className)}>

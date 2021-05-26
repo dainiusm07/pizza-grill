@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { useState } from "react";
 import {
   GOOGLE_SHEETS_EMAIL_SCRIPT_LINK,
@@ -16,11 +17,13 @@ const ReviewSection: React.FC = () => {
   const isSmDown = useMediaDown("sm");
   const [isSectionVisible, ref] = useVisibility(30);
 
-  const [email, setEmail] = useState("test@gmail.com");
-  const [name, setName] = useState("testbane");
-  const [review, setReview] = useState("test-review");
+  const [formStatus, setFormStatus] = useState<"success" | "error">(null);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [review, setReview] = useState("");
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    setFormStatus(null);
     e.preventDefault();
 
     const formData = new FormData();
@@ -29,10 +32,23 @@ const ReviewSection: React.FC = () => {
     formData.append("name", name);
     formData.append("review", review);
 
-    await fetch(GOOGLE_SHEETS_EMAIL_SCRIPT_LINK, {
-      method: "post",
-      body: formData,
-    });
+    try {
+      const response = await fetch(GOOGLE_SHEETS_EMAIL_SCRIPT_LINK, {
+        method: "post",
+        body: formData,
+      }).then((response) => response.json());
+
+      if (response.result === "success") {
+        setFormStatus("success");
+        setEmail("");
+        setName("");
+        setReview("");
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
   };
 
   const background = (
@@ -43,6 +59,9 @@ const ReviewSection: React.FC = () => {
       src="landing_1.jpg"
     />
   );
+
+  const successMessage = "Atsiliepimas sėkmingai išsiųstas!";
+  const errorMessage = "Atsiliepimo išsiųsti nepavyko!";
 
   return (
     <Section ref={ref} container={false} background={background}>
@@ -61,6 +80,18 @@ const ReviewSection: React.FC = () => {
             method="POST"
             onSubmit={handleFormSubmit}
           >
+            {formStatus && (
+              <div className="mb-7 text-white font-semibold text-center text-lg">
+                <div
+                  className={clsx(
+                    formStatus === "success" ? "bg-green-500" : "bg-red-500",
+                    "py-3 px-5 rounded-md"
+                  )}
+                >
+                  {formStatus === "success" ? successMessage : errorMessage}
+                </div>
+              </div>
+            )}
             <TextField
               label="El. paštas"
               placeholder="Jūsų el. paštas"
