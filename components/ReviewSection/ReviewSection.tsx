@@ -57,7 +57,7 @@ const ReviewSection: React.FC = () => {
             <p className="mt-2 text-lg">Mums svarbi jūsų nuomonė!</p>
           </div>
           <form
-            className="max-w-xl mx-auto w-full mt-16 px-3 sm:px-7"
+            className="max-w-xl mx-auto w-full mt-10 px-5 sm:px-7"
             method="POST"
             onSubmit={handleFormSubmit}
           >

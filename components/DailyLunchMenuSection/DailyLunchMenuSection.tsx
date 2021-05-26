@@ -36,7 +36,7 @@ const DailyLunchMenuSection: React.FC = () => {
           className="max-w-4xl mx-auto text-center text-black"
         >
           <SectionTitle>Dienos pietūs</SectionTitle>
-          <p className="mt-6 text-lg">
+          <p className="mt-6 text-lg text-justify sm:text-center">
             Darbo dienomis nuo 11.00 iki 15.00 val. Visus kviečiame skaniai ir
             sočiai papietauti pas mus. Kiekvieną dieną siūlome vis naują dienos
             pietų pasiūlymą: sriubą, karštą patiekalą bei dienos picą.

@@ -1,14 +1,44 @@
 import { NextComponentType } from "next";
 import Head from "next/head";
 import React from "react";
-import { COMPANY_NAME, MENU_PDF_LINK } from "../common/constants";
+import { COMPANY_NAME } from "../common/constants";
+import AppImage from "../components/AppImage/AppImage";
+import Button from "../components/Button/Button";
+import Section from "../components/Section/Section";
+import { useMediaDown } from "../hooks/useMediaDown.hook";
+
+const menuPdfFilename = "pizza-grill-menu.pdf";
 
 const MenuPage: NextComponentType = () => {
-  const menuFrame = (
-    <iframe
+  const isSmDown = useMediaDown("sm");
+
+  const normalView = (
+    <embed
       className="h-screen w-full"
-      src={`http://docs.google.com/gview?url=${MENU_PDF_LINK}&embedded=true`}
+      type="application/pdf"
+      src={menuPdfFilename}
     />
+  );
+
+  const background = (
+    <AppImage
+      isVisible={true}
+      className="h-full w-full"
+      overlayOpacity={0.5}
+      src="landing_1.jpg"
+    />
+  );
+
+  const mobileView = (
+    <Section className="h-screen" background={background}>
+      <div className="h-full flex flex-col align-middle justify-center">
+        <Button size="large">
+          <a href={menuPdfFilename} download>
+            Atsisiųsti meniu
+          </a>
+        </Button>
+      </div>
+    </Section>
   );
 
   return (
@@ -19,8 +49,14 @@ const MenuPage: NextComponentType = () => {
           name="description"
           content="Pizza & Grill – tai picų ir ant žarijų kepamų patiekalų laisvalaikio restoranėlis, įsikūręs turistų pamėgtame mieste - Trakuose."
         />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400&display=swap"
+          rel="stylesheet"
+        />
       </Head>
-      {menuFrame}
+      {isSmDown ? mobileView : normalView}
     </>
   );
 };

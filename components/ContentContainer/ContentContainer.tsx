@@ -12,7 +12,7 @@ const ContentContainer: React.FC<ContentContainerProps> = ({
   ...props
 }) => {
   return (
-    <div className={clsx("max-w-5xl px-3 mx-auto", className)} {...props}>
+    <div className={clsx("max-w-5xl px-5 mx-auto", className)} {...props}>
       {children}
     </div>
   );
