@@ -31,12 +31,10 @@ const MenuPage: NextComponentType = () => {
 
   const mobileView = (
     <Section className="h-screen" background={background}>
-      <div className="h-full flex flex-col align-middle justify-center">
-        <Button size="large">
-          <a href={menuPdfFilename} download>
-            Atsisiųsti meniu
-          </a>
-        </Button>
+      <div className="h-full flex text-center flex-col align-middle justify-center">
+        <a href={menuPdfFilename} download>
+          <Button size="large">Atsisiųsti meniu</Button>
+        </a>
       </div>
     </Section>
   );

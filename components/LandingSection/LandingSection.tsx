@@ -28,6 +28,10 @@ const carouselImages: CarouselImageType[] = [
     src: "landing_5.jpg",
     overlayOpacity: 0.5,
   },
+  {
+    src: "landing_6.jpg",
+    overlayOpacity: 0.5,
+  },
 ];
 
 const LandingSection: React.FC = () => {
@@ -49,11 +53,14 @@ const LandingSection: React.FC = () => {
       background={background}
     >
       <div className="h-full flex items-center justify-center">
-        <div className="max-w-md mx-auto">
-          <h1 className="font-primary text-5xl sm:text-7xl font-semibold text-center">
+        <div className="max-w-md mx-auto text-center">
+          <h1 className="font-primary text-5xl sm:text-7xl font-semibold">
             {COMPANY_NAME}
           </h1>
-          <p className="mt-5 text-xl sm:text-2xl text-center">
+          <h3 className="font-primary uppercase font-semibold text-2xl sm:text-3xl">
+            Trakai
+          </h3>
+          <p className="mt-5 text-xl sm:text-2xl">
             Mūsų misija – pradžiuginti savo klientus gaminant maistą su meile
           </p>
           <div className="text-center mt-10">
